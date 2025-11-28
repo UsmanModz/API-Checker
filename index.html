@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USMAN API CHECKER</title>
+<style>
+  body {
+    background: #ffffff;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .container {
+    border: 2px solid #0f0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 0 15px #0f0;
+    background: #ffffff;
+  }
+
+  h3 {
+    color: #000; /* black title */
+    font-weight: bold;
+  }
+
+  p {
+    color: #000;
+  }
+
+  input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px dashed #0f0;
+    color: #000;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #0f0;
+    color: #0f0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #0f0;
+    color: #000;
+  }
+
+  .output {
+    margin-top: 20px;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .footer {
+    margin-top: 30px;
+    color: #000;
+    font-size: 14px;
+  }
+
+  /* &#9989; WhatsApp animated button */
+  .whatsapp-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 15px #25D366;
+    animation: pulse 1.5s infinite;
+    transition: 0.3s;
+  }
+
+  .whatsapp-btn:hover {
+    background-color: #1ebe5b;
+    box-shadow: 0 0 25px #1ebe5b;
+    transform: scale(1.05);
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0px #25D366; }
+    50% { box-shadow: 0 0 20px #25D366; }
+    100% { box-shadow: 0 0 0px #25D366; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h3>&#127760; USMAN API CHECKER</h3>
+  <p>[SYSTEM] Initializing API Checker Tool...</p>
+  <p>[DEV]: USMAN-OFFICIAL</p>
+  <p>[INPUT] Enter API URL below to test connectivity:</p>
+  
+  <input type="text" id="apiUrl" placeholder="https://example.com">
+  <br>
+  <button onclick="checkAPI()">RUN</button>
+
+  <div class="output" id="output"></div>
+
+  <!-- &#128172; Animated WhatsApp Join Button -->
+  <a class="whatsapp-btn" href="https://whatsapp.com/channel/0029Vb6SwB147XeCTHpikc0O" target="_blank">
+    &#128172; Join WhatsApp Channel
+  </a>
+</div>
+
+<div class="footer">
+  &copy; Powered By Usman &#129313;
+</div>
+
+<script>
+function checkAPI() {
+  const url = document.getElementById('apiUrl').value;
+  const output = document.getElementById('output');
+  
+  if (!url) {
+    output.innerHTML = '[ERROR] Please enter a valid API URL!';
+    return;
+  }
+
+  output.innerHTML = '[SYSTEM] Checking connectivity...';
+
+  fetch(url)
+    .then(res => {
+      if (res.ok) {
+        output.innerHTML = `[SUCCESS] Connected successfully! &#9989;<br>Status: ${res.status}`;
+      } else {
+        output.innerHTML = `[FAILED] API responded with error &#10060;<br>Status: ${res.status}`;
+      }
+    })
+    .catch(() => {
+      output.innerHTML = '[ERROR] Unable to reach the API endpoint &#10060;';
+    });
+}
+</script>
+
+</body>
+</html>
